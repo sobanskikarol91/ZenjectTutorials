@@ -1,0 +1,4 @@
+﻿interface IShoot
+{
+    void Shoot();
+}
