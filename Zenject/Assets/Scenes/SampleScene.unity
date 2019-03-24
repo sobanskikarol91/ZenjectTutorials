@@ -142,8 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bd28fc7f808c246a45110365a06dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyConsumerPrefab: {fileID: 2745526258522971976, guid: 0b6404792853b494bad4b2a582bcbdeb,
-    type: 3}
 --- !u!114 &160551524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 9057166d989239a4da85dbaf0e40ffe8, type: 2}
   _monoInstallers:
   - {fileID: 160551523}
   _installerPrefabs: []
