@@ -26,7 +26,7 @@ namespace Zenject.SpaceFighter
         public PlayerSettings Player;
         public EnemySettings Enemy;
 
-        [Serializable]
+        [Serializable] 
         public class PlayerSettings
         {
             public PlayerMoveHandler.Settings PlayerMoveHandler;

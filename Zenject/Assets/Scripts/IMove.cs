@@ -1,0 +1,4 @@
+﻿interface IMove  
+{
+   void Move();
+}
