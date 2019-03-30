@@ -1,30 +1,37 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using Zenject;
+using System.Linq;
 
 public class PlayerStateFactory
 {
-    readonly PlayerMove.Factory playerMove;
-
-    public enum PlayerStateType { Moving, Shooting}
-    Dictionary<PlayerStateType, Creator> states = new Dictionary<PlayerStateType, Creator>();
+    Dictionary<string, PlaceholderFactory<PlayerState>> states = new Dictionary<string, PlaceholderFactory<PlayerState>>();
 
     delegate PlayerState Creator(); 
 
     public PlayerStateFactory(PlayerMove.Factory move)
     {
-        states.Add(PlayerStateType.Moving, move.Create);
+        var types = Assembly.GetAssembly(typeof(PlaceholderFactory<PlayerState>)).GetTypes().
+            Where(type => type.IsClass && !type.IsAbstract);
+
+        foreach (Type s in types)
+        {
+            var stateFactory = Activator.CreateInstance(s) as PlaceholderFactory<PlayerState>;
+            states.Add(s.Name, stateFactory);
+        }
     }
 
-    public PlayerState CreateState(PlayerStateType state)
+    public PlayerState CreateState(string name)
     {
-        return states[state]();
+        PlaceholderFactory<PlayerState> a = new PlaceholderFactory<PlayerState>();
+        return states[name].Create();
     }
 }
 
-public class PlayerState
+public abstract class PlayerState
 {
     //public class Factory<State> :PlaceholderFactory<State>  where State : PlayerState
     //{

@@ -5,3 +5,4 @@ Zenject/Library/
 *.ide-wal
 *.ide-shm
 *.suo
+Zenject/.vs/
