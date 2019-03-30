@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class PlayerMovement : IMove
+public class PlayerMove : PlayerState, IMove
 {
     private readonly IInput input;
     private readonly Settings settings;
     private readonly Transform transform;
 
     [Inject]
-    public PlayerMovement(IInput input, Transform transform)
+    public PlayerMove(IInput input, Transform transform)
     {
         this.transform = transform;
         this.input = input;
@@ -34,5 +34,10 @@ public class PlayerMovement : IMove
 
         [SerializeField] float verticalSpeed;
         [SerializeField] float horizontalSpeed;
+    }
+
+    public class Factory : PlaceholderFactory<PlayerMove>
+    {
+
     }
 }

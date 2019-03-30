@@ -5,7 +5,9 @@ using Zenject;
 
 public class Player : MonoBehaviour
 {
-    PlayerMovement movement;
+    [Inject]
+    PlayerMove movement;
+
 
     private void Update()
     {

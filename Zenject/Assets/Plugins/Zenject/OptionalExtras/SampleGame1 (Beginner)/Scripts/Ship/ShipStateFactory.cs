@@ -8,9 +8,9 @@ namespace Zenject.Asteroids
         Dead,
         WaitingToStart,
         Count
-    }
+    } 
 
-    public class ShipStateFactory
+    public class ShipStateFactory 
     {
         readonly ShipStateWaitingToStart.Factory _waitingFactory;
         readonly ShipStateMoving.Factory _movingFactory;
